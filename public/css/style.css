@@ -1,8 +1,103 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-a {
-  color: #00B7FF;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(30, 30, 30);
+}
+
+.form {
+  display: inline-block;
+  padding: 2rem;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  display: block;
+  border-radius: 1rem;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.44);
+}
+
+.form__heading {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.form__subheading {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.form__input-box {
+  margin-bottom: 2rem;
+  position: relative;
+}
+.form__input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.form__input {
+  padding: 1rem;
+  padding-left: 3.5rem;
+  border: none;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  transition: all 0.2s;
+  border-left: 5px solid transparent;
+  font-size: 1.5rem;
+  background-color: rgb(240, 240, 240);
+}
+
+.form__input-error {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #e74c3c;
+}
+
+.form__input:valid {
+  border-left: 5px solid #2ecc71;
+}
+
+.form__input:invalid:not(:placeholder-shown) {
+  border-left: 5px solid #e74c3c;
+}
+
+.form__submit {
+  padding: 1rem;
+  color: white;
+  border: none;
+  background-color: #2ecc71;
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 900;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.form__submit:hover {
+  cursor: pointer;
+  background-color: #208f4e;
 }
