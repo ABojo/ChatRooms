@@ -6,5 +6,5 @@ html
   body
     if popUpMessage
       h1(class=`popup-message ${popUpMessage.status}`)=popUpMessage.text
-
-    block content
+    div(class='main')
+      block content
