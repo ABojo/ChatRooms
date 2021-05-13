@@ -6,9 +6,12 @@ exports.getRegisterPage = (req, res) => {
 };
 
 exports.register = async (req, res) => {
-  const { name, username, password, passwordConfirm } = req.body;
+  try {
+    const { name, username, password, passwordConfirm } = req.body;
 
-  if (password === passwordConfirm) {
+    if (password !== passwordConfirm)
+      throw new Error('The passwords you provided do not match!');
+
     const hashedPass = await bcrypt.hash(password, 12);
     await User.create({ name, username, password: hashedPass });
     res.render('index', {
@@ -17,11 +20,14 @@ exports.register = async (req, res) => {
         text: 'You have successfully created a new account!',
       },
     });
-  } else {
+  } catch (err) {
+    let msg = err.message;
+    if (err.code === 11000) msg = `${err.keyValue.username} is already taken!`;
+
     res.render('registerForm', {
       popUpMessage: {
         status: 'failure',
-        text: 'The passwords you have provided did not match!',
+        text: msg,
       },
     });
   }
