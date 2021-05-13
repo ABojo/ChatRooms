@@ -101,3 +101,46 @@ body {
   cursor: pointer;
   background-color: #208f4e;
 }
+
+.popup-message {
+  font-size: 1.5rem;
+  position: fixed;
+  left: 50%;
+  top: -20rem;
+  transform: translateX(-50%);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  max-width: 100%;
+  border-radius: 1rem;
+  animation: slideIn 4s;
+}
+.popup-message.success {
+  background-color: #2ecc71;
+}
+
+.popup-message.failure {
+  background-color: #e74c3c;
+}
+
+@keyframes slideIn {
+  0% {
+    top: -10rem;
+  }
+
+  33% {
+    top: 5rem;
+  }
+
+  50% {
+    top: 5rem;
+  }
+
+  67% {
+    top: 5rem;
+  }
+
+  100% {
+    top: -20rem;
+  }
+}
