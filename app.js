@@ -10,6 +10,7 @@ const setupPassport = require('./passport.config');
 
 var indexRouter = require('./routes/index');
 const registerRouter = require('./routes/registerRoutes');
+const logoutRouter = require('./routes/logoutRoutes');
 
 var app = express();
 
@@ -52,6 +53,7 @@ app.use((req, res, next) => {
 //Routers to direct requests to the proper handlers
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
+app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
