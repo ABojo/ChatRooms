@@ -2,6 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
 exports.getRegisterPage = (req, res) => {
+  console.log(req.sessionID);
   res.render('registerForm');
 };
 

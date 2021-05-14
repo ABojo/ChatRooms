@@ -3,22 +3,47 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const passport = require('passport');
+const setupPassport = require('./passport.config');
 
 var indexRouter = require('./routes/index');
 const registerRouter = require('./routes/registerRoutes');
 
 var app = express();
 
-// view engine setup
+//View engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//logging requests
 app.use(logger('dev'));
+
+//Parsing request data
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//Serves static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Session middleware
+app.use(
+  session({
+    secret: process.env.SESSION_KEY,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.DB_CONNECTION_STRING }),
+  })
+);
+
+//Setup Passport
+setupPassport(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Routers to direct requests to the proper handlers
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
 

@@ -1,7 +1,7 @@
+require('dotenv').config();
 const startServer = require('./app');
 const connectToDatabase = require('./connectDB');
 
-//Import env variables, connect to db, and start listening for requests
-require('dotenv').config();
+//Connect to db + start listening for requests
 connectToDatabase();
 startServer();
