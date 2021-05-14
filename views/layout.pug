@@ -4,8 +4,11 @@ html
     title= title
     link(rel='stylesheet', href='/css/style.css')
   body
-    if popUpMessage
-      h1(class=`popup-message ${popUpMessage.status}`)=popUpMessage.text
+    if messages.error
+      h1(class='popup-message failure')=messages.error
+    if messages.success 
+      h1(class='popup-message success')=messages.success
+
     div(class='navbar')
       a(class='navbar__heading', href='/') Chat Rooms
       ul(class='navbar__list')

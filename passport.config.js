@@ -7,12 +7,18 @@ const setupPassport = (passport) => {
   passport.use(
     new LocalStrategy(async function (username, password, done) {
       const user = await User.findOne({ username });
-      if (!user) return done(null, false);
+      if (!user)
+        return done(null, false, {
+          message: 'That username you entered does not exist!',
+        });
 
       const passIsValid = await bcrypt.compare(password, user.password);
-      if (!passIsValid) return done(null, false);
+      if (!passIsValid)
+        return done(null, false, {
+          message: 'You entered an incorrect username or password!',
+        });
 
-      return done(null, user);
+      return done(null, user, { message: 'You have successfully logged in!' });
     })
   );
 
