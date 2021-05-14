@@ -6,5 +6,18 @@ html
   body
     if popUpMessage
       h1(class=`popup-message ${popUpMessage.status}`)=popUpMessage.text
+    div(class='navbar')
+      a(class='navbar__heading', href='/') Chat Rooms
+      ul(class='navbar__list')
+        li(class='navbar__item')
+          a(class='navbar__link', href='/') Home 
+        li(class='navbar__item')
+          a(class='navbar__link', href='/login') Login 
+        li(class='navbar__item')
+          a(class='navbar__link', href='/register') Register
+        li(class='navbar__item')
+          i(class='navbar__profile-icon fas fa-user')
+          h1(class='navbar__profile') AlexBojo
+
     div(class='main')
       block content

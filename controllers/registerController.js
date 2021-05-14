@@ -14,6 +14,7 @@ exports.register = async (req, res) => {
 
     const hashedPass = await bcrypt.hash(password, 12);
     await User.create({ name, username, password: hashedPass });
+
     res.render('index', {
       popUpMessage: {
         status: 'success',

@@ -14,7 +14,7 @@ html {
 body {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(60, 60, 60);
 }
 
 .main {
@@ -125,6 +125,50 @@ body {
 
 .popup-message.failure {
   background-color: #e74c3c;
+}
+
+.navbar {
+  background-color: rgb(30, 30, 30);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__list {
+  list-style-type: none;
+}
+
+.navbar__item {
+  display: inline-block;
+}
+
+.navbar__link,
+.navbar__profile,
+.navbar__profile-icon {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navbar__profile {
+  font-weight: 900;
+  display: inline-block;
+}
+
+.navbar__profile-icon {
+  margin-right: 1rem;
+}
+
+.navbar__item:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+.navbar__heading {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 @keyframes slideIn {
