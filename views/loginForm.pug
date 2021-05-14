@@ -1,0 +1,13 @@
+extends layout
+
+block content 
+	form(class='form' method='POST' action='/login')
+		h1(class='form__heading') Login
+		p(class='form__subheading') Please enter your login details below
+		div(class='form__input-box')
+			i(class='form__input-icon fas fa-user')
+			input(type='text', class='form__input', placeholder='Username', name='username', required)
+		div(class='form__input-box')
+			i(class='form__input-icon fas fa-key')
+			input(type='password', class='form__input', placeholder='Password', name='password', required)
+		input(type='submit', class='form__submit', value='Login')

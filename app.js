@@ -9,9 +9,9 @@ const passport = require('passport');
 const setupPassport = require('./passport.config');
 
 var indexRouter = require('./routes/index');
+const loginRouter = require('./routes/loginRoutes');
 const registerRouter = require('./routes/registerRoutes');
 const logoutRouter = require('./routes/logoutRoutes');
-
 var app = express();
 
 //View engine
@@ -53,6 +53,7 @@ app.use((req, res, next) => {
 //Routers to direct requests to the proper handlers
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
+app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
