@@ -6,7 +6,7 @@ const setupPassport = (passport) => {
   //This function determines whether or not a user should be authenticaed
   passport.use(
     new LocalStrategy(async function (username, password, done) {
-      const user = await User.find({ username });
+      const user = await User.findOne({ username });
       if (!user) return done(null, false);
 
       const passIsValid = await bcrypt.compare(password, user.password);
