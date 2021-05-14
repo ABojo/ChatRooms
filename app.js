@@ -43,6 +43,12 @@ setupPassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// add user to locals so its accesible in all views
+app.use((req, res, next) => {
+  if (req.user) res.locals.currentUser = req.user;
+  next();
+});
+
 //Routers to direct requests to the proper handlers
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
