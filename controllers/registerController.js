@@ -14,13 +14,10 @@ exports.register = async (req, res) => {
       throw new Error('The passwords you provided do not match!');
 
     const hashedPass = await bcrypt.hash(password, 12);
-    await User.create({ name, username, password: hashedPass });
+    const newUser = await User.create({ name, username, password: hashedPass });
 
-    res.render('index', {
-      popUpMessage: {
-        status: 'success',
-        text: 'You have successfully created a new account!',
-      },
+    req.login(newUser, (err) => {
+      if (!err) return res.redirect('/');
     });
   } catch (err) {
     let msg = err.message;
