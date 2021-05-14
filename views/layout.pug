@@ -16,6 +16,8 @@ html
           li(class='navbar__item')
             i(class='navbar__profile-icon fas fa-user')
             h1(class='navbar__profile')=currentUser.username
+          li(class='navbar__item')
+            a(class='navbar__logout' href='/logout') Logout
         else
           li(class='navbar__item')
             a(class='navbar__link', href='/login') Login 
