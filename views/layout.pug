@@ -11,13 +11,17 @@ html
       ul(class='navbar__list')
         li(class='navbar__item')
           a(class='navbar__link', href='/') Home 
-        li(class='navbar__item')
-          a(class='navbar__link', href='/login') Login 
-        li(class='navbar__item')
-          a(class='navbar__link', href='/register') Register
-        li(class='navbar__item')
-          i(class='navbar__profile-icon fas fa-user')
-          h1(class='navbar__profile') AlexBojo
+
+        if currentUser
+          li(class='navbar__item')
+            i(class='navbar__profile-icon fas fa-user')
+            h1(class='navbar__profile')=currentUser.username
+        else
+          li(class='navbar__item')
+            a(class='navbar__link', href='/login') Login 
+          li(class='navbar__item')
+            a(class='navbar__link', href='/register') Register
+        
 
     div(class='main')
       block content
