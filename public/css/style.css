@@ -115,7 +115,8 @@ body {
   padding: 2rem;
   text-align: center;
   color: white;
-  max-width: 100%;
+  width: 90%;
+  max-width: 50rem;
   border-radius: 1rem;
   animation: slideIn 4s;
 }
