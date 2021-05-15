@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+	form(class='form' method='POST' action='/create')
+		h1(class='form__heading') Create Room
+		p(class='form__subheading') Please fill out the form below to create a room
+		div(class='form__input-box')
+			i(class='form__input-icon fas fa-at')
+			input(type='text', class='form__input', placeholder='Room Name', name='name', required)
+		div(class='form__input-box')
+			input(type='checkbox' id='private')
+			label(class='form__label' for='private') Private
+		div(class='form__input-box')
+			i(class='form__input-icon fas fa-key')
+			input(type='text', class='form__input', placeholder='Room password', name='password', disabled)
+		input(type='submit', class='form__submit', value='Create Room')
+		script(src='/js/createRoom.js')
