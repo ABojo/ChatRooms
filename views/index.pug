@@ -1,5 +1,38 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='room-grid')
+    div(class='room-item')
+      h1(class='room-item__name') Chat Room Name 
+      p(class='room-item__messages') 122 Messages 
+      p(class='room-item__users') 15 users 
+      i(class='room-item__status fas fa-unlock')
+      a(class='room-item__open', href='/') Join Room
+
+
+    div(class='room-item')
+      h1(class='room-item__name') Chat Room Name 
+      p(class='room-item__messages') 122 Messages 
+      p(class='room-item__users') 15 users 
+      i(class='room-item__status fas fa-lock')
+      a(class='room-item__open', href='/') Join Room
+
+
+    div(class='room-item')
+      h1(class='room-item__name') Chat Room Name 
+      p(class='room-item__messages') 122 Messages 
+      p(class='room-item__users') 15 users 
+      i(class='room-item__status fas fa-unlock')
+      a(class='room-item__open', href='/') Join Room
+
+
+    div(class='room-item')
+      h1(class='room-item__name') Chat Room Name 
+      p(class='room-item__messages') 
+        i(class='fas fa-envelope ') 122 Messages 
+      p(class='room-item__users') 15 users 
+      i(class='room-item__status fas fa-unlock')
+      a(class='room-item__open', href='/') Enter Room
+  a(href='/', class='create-button') Create room
+
+

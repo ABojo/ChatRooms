@@ -182,6 +182,75 @@ body {
   font-weight: 900;
 }
 
+.room-grid {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.room-item {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.44);
+  transition: all 0.2s;
+  position: relative;
+}
+
+.room-item:hover {
+  transform: translateY(-3px);
+}
+
+.room-item > * {
+  margin-bottom: 1rem;
+}
+
+.room-item__messages,
+.room-item__users {
+  font-size: 1.3rem;
+}
+
+.room-item__status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
+.room-item__open {
+  background-color: #2ecc71;
+  padding: 1rem;
+  color: white;
+  border: none;
+  margin-bottom: 0;
+  border-radius: 1rem;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+}
+
+.room-item__open:hover {
+  background-color: #208f4e;
+  cursor: pointer;
+}
+
+.create-button {
+  background-color: #2ecc71;
+  padding: 1rem;
+  color: white;
+  border: none;
+  margin-bottom: 0;
+  border-radius: 1rem;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+  margin-top: 5rem;
+}
+
 @keyframes slideIn {
   0% {
     top: -10rem;
