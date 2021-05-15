@@ -2,6 +2,11 @@ extends layout
 
 block content
   div(class='room-grid')
+    div(class='room-item create')
+      a(class='room-item__new', href='/create-room') Create Room
+
+
+
     div(class='room-item')
       h1(class='room-item__name') Chat Room Name 
       p(class='room-item__messages') 122 Messages 
@@ -28,11 +33,9 @@ block content
 
     div(class='room-item')
       h1(class='room-item__name') Chat Room Name 
-      p(class='room-item__messages') 
-        i(class='fas fa-envelope ') 122 Messages 
+      p(class='room-item__messages') 122 Messages
       p(class='room-item__users') 15 users 
       i(class='room-item__status fas fa-unlock')
       a(class='room-item__open', href='/') Enter Room
-  a(href='/', class='create-button') Create room
 
 
