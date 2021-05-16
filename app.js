@@ -14,6 +14,7 @@ const loginRouter = require('./routes/loginRoutes');
 const registerRouter = require('./routes/registerRoutes');
 const logoutRouter = require('./routes/logoutRoutes');
 const createRouter = require('./routes/createRoutes');
+const roomRouter = require('./routes/roomRoutes');
 
 var app = express();
 
@@ -60,6 +61,7 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/create', createRouter);
+app.use('/room', roomRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
