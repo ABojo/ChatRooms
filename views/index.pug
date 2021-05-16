@@ -2,15 +2,16 @@ extends layout
 
 block content
   div(class='room-grid')
-    div(class='room-item create')
-      a(class='room-item__new', href='/create') Create Room
+    if currentUser
+      div(class='room-item create')
+        a(class='room-item__new', href='/create') Create Room
     each room in rooms
       div(class='room-item')
         h1(class='room-item__name')=`${room.name}` 
         p(class='room-item__messages')=`${room.messageCount} Messages` 
         p(class='room-item__users')=`${room.userCount} Users` 
         i(class=`room-item__status ${room.private ? 'fas fa-lock' : 'fas fa-unlock'}`)
-        a(class='room-item__open', href=`${room.url}`) Join Room
+        a(class='room-item__open', href=`${room.url}`) View Room
 
     
 
