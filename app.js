@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const setupPassport = require('./passport.config');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/indexRoutes');
 const loginRouter = require('./routes/loginRoutes');
 const registerRouter = require('./routes/registerRoutes');
 const logoutRouter = require('./routes/logoutRoutes');

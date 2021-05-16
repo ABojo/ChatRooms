@@ -4,38 +4,14 @@ block content
   div(class='room-grid')
     div(class='room-item create')
       a(class='room-item__new', href='/create') Create Room
+    each room in rooms
+      div(class='room-item')
+        h1(class='room-item__name')=`${room.name}` 
+        p(class='room-item__messages')=`${room.messageCount} Messages` 
+        p(class='room-item__users')=`${room.userCount} Users` 
+        i(class=`room-item__status ${room.private ? 'fas fa-lock' : 'fas fa-unlock'}`)
+        a(class='room-item__open', href=`${room.url}`) Join Room
 
-
-
-    div(class='room-item')
-      h1(class='room-item__name') Chat Room Name 
-      p(class='room-item__messages') 122 Messages 
-      p(class='room-item__users') 15 users 
-      i(class='room-item__status fas fa-unlock')
-      a(class='room-item__open', href='/') Join Room
-
-
-    div(class='room-item')
-      h1(class='room-item__name') Chat Room Name 
-      p(class='room-item__messages') 122 Messages 
-      p(class='room-item__users') 15 users 
-      i(class='room-item__status fas fa-lock')
-      a(class='room-item__open', href='/') Join Room
-
-
-    div(class='room-item')
-      h1(class='room-item__name') Chat Room Name 
-      p(class='room-item__messages') 122 Messages 
-      p(class='room-item__users') 15 users 
-      i(class='room-item__status fas fa-unlock')
-      a(class='room-item__open', href='/') Join Room
-
-
-    div(class='room-item')
-      h1(class='room-item__name') Chat Room Name 
-      p(class='room-item__messages') 122 Messages
-      p(class='room-item__users') 15 users 
-      i(class='room-item__status fas fa-unlock')
-      a(class='room-item__open', href='/') Enter Room
+    
 
 
