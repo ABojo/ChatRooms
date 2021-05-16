@@ -8,4 +8,5 @@ const messageSchema = new mongoose.Schema({
     default: Date.now(),
   },
   text: { type: String, required: [true, 'You must specify text!'] },
+  sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
