@@ -22,7 +22,10 @@ exports.create = async (req, res) => {
     req.flash('success', 'You have succesfully created a new chat room!');
     res.redirect('/');
   } catch (err) {
-    req.flash('error', 'There was a problem creating the room!');
+    let msg = err.message;
+    if (err.code === 11000) msg = `${err.keyValue.name} is already taken!`;
+
+    req.flash('error', msg);
     res.redirect('/create');
   }
 };
