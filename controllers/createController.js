@@ -10,6 +10,7 @@ exports.create = async (req, res) => {
     const createObj = {
       name: req.body.name,
       private: req.body.private,
+      owner: req.user._id,
     };
 
     if (req.body.password) {
