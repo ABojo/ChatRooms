@@ -11,6 +11,7 @@ exports.create = async (req, res) => {
       name: req.body.name,
       private: req.body.private,
       owner: req.user._id,
+      users: [req.user._id],
     };
 
     if (req.body.password) {
