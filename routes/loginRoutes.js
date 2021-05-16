@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const loginController = require('../controllers/loginController');
+const authController = require('../controllers/authController');
 const passport = require('passport');
 
-router.get('/', loginController.getLoginPage);
+router.get('/', authController.protectFromAuthed, loginController.getLoginPage);
 router.post(
   '/',
+  authController.protectFromAuthed,
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
