@@ -8,8 +8,7 @@ exports.protectRoom = async (req, res, next) => {
   if (!room.private) return next();
   if (room.users.includes(req.user._id)) return next();
 
-  req.flash('error', 'Sorry, are not a member of that room!');
-  res.render('joinRoom');
+  res.render('joinRoom', { room: room });
 };
 
 exports.getRoomPage = async (req, res) => {
@@ -31,7 +30,6 @@ exports.sendMessage = async (req, res) => {
 
     room.messages.push(message._id);
     await room.save();
-    req.flash('success', 'Message sent!');
   } catch (err) {
     console.log(err);
     req.flash('error', 'Failed to send your message!');

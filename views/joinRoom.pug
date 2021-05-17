@@ -1,4 +1,10 @@
 extends layout 
 
 block content 
-	h1 this shit locked mothafucka
+	form(class='form' method='POST' action=`${room.url}/join`)
+		h1(class='form__heading')=`Join ${room.name}`
+		p(class='form__subheading') Please enter the correct password to join the room!
+		div(class='form__input-box')
+			i(class='form__input-icon fas fa-key')
+			input(type='password', class='form__input', placeholder='Room password', name='password', required)
+		input(type='submit', class='form__submit', value='Join Room')
