@@ -17,10 +17,6 @@ roomSchema.virtual('messageCount').get(function () {
   return this.messages.length;
 });
 
-roomSchema.virtual('userCount').get(function () {
-  return this.users.length;
-});
-
 const Room = mongoose.model('Room', roomSchema);
 
 module.exports = Room;
