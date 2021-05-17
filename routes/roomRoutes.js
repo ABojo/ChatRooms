@@ -16,4 +16,6 @@ router.post(
   roomController.sendMessage
 );
 
+router.post('/:name/join', authController.protect, roomController.joinRoom);
+
 module.exports = router;

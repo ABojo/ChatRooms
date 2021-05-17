@@ -1,5 +1,6 @@
 const Room = require('../models/Room');
 const Message = require('../models/Message');
+const bcrypt = require('bcryptjs');
 
 exports.protectRoom = async (req, res, next) => {
   const { name } = req.params;
@@ -33,6 +34,24 @@ exports.sendMessage = async (req, res) => {
   } catch (err) {
     console.log(err);
     req.flash('error', 'Failed to send your message!');
+  }
+
+  res.redirect(room.url);
+};
+
+exports.joinRoom = async (req, res) => {
+  const { password } = req.body;
+  const { name } = req.params;
+  const room = await Room.findOne({ name });
+
+  const passIsValid = await bcrypt.compare(password, room.password);
+
+  if (passIsValid) {
+    room.users.push(req.user._id);
+    await room.save();
+    req.flash('success', 'You have joined the room!');
+  } else {
+    req.flash('error', 'Sorry, that password is incorrect!');
   }
 
   res.redirect(room.url);
