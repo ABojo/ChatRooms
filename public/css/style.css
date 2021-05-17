@@ -398,6 +398,29 @@ body {
   .message {
     width: 80%;
   }
+
+  .form__heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .navbar__heading {
+    font-size: 1.3rem;
+  }
+
+  .navbar__link,
+  .navbar__profile,
+  .navbar__profile-icon {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .navbar__profile,
+  .navbar__profile-icon {
+    display: none;
+  }
 }
 
 @keyframes slideIn {
