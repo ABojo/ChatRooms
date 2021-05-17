@@ -8,12 +8,6 @@ const userSchema = new mongoose.Schema({
     required: [true, 'You must specify a username!'],
   },
   password: { type: String, required: [true, 'You must specify a password!'] },
-  membership: {
-    type: String,
-    enum: ['free', 'premium', 'admin'],
-    default: 'free',
-    require: [true, 'You must specify a membership!'],
-  },
   messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }],
 });
 
