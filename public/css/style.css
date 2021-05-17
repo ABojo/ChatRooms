@@ -280,17 +280,17 @@ body {
 
 .chat-room {
   border-radius: 2rem;
-  box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.44);
   background-color: white;
   margin: 0 auto;
   width: 100%;
   max-width: 60rem;
   padding: 2rem;
-  background-color: rgb(245, 245, 245);
+  background-color: transparent;
 }
 
 .chat-room__name {
   margin-bottom: 1rem;
+  color: white;
 }
 
 .chat-box {
