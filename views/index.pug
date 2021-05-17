@@ -8,7 +8,7 @@ block content
     each room in rooms
       div(class='room-item')
         h1(class='room-item__name')=`${room.name}` 
-        p(class='room-item__messages')=`${room.messageCount} Messages` 
+        p(class='room-item__messages')=`${room.messageCount} ${room.messageCount === 1 ? 'Message' : 'Messages'}` 
         p(class='room-item__users')=`${room.userCount} Users` 
         i(class=`room-item__status ${room.private ? 'fas fa-lock' : 'fas fa-unlock'}`)
         a(class='room-item__open', href=`${room.url}`) View Room
