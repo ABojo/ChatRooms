@@ -3,20 +3,16 @@ block content
 	div(class='chat-room')
 		h1(class='chat-room__name')=`${room.name}`
 		div(class='chat-box')
-			div(class='message other')
-				div(class='message__details')
-					h1(class='message__name') AlexBojo
-					h1(class='message__time') 5/16 12:15 PM
-				h1(class='message__text') Hey how are you!
-			div(class='message self')
-				div(class='message__details')
-					h1(class='message__name') You
-					h1(class='message__time') 5/16 12:16 PM
-				h1(class='message__text') I am good thanks for asking! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores culpa esse, ipsa et laboriosam earum sunt! Sequi inventore omnis odit ea at, accusamus culpa iste, ipsum id libero eos.
-	
+			each message in room.messages
+				div(class=`message ${currentUser.username === message.sender ? 'self' : 'other'}`)
+					div(class='message__details')
+						h1(class='message__name')=message.sender
+						h1(class='message__time')=`${message.formattedStamp}`
+					h1(class='message__text')=message.text
+
 			
 		form(class='chat-form', method='POST', action=`${room.url}/send`)
 			div(class='chat-form__input-box')
 				i(class='chat-form__input-icon fas fa-envelope')
-				input(class='chat-form__input', type='text', placeholder='Enter your message', required)
+				input(class='chat-form__input', type='text', placeholder='Enter your message', name='text', required)
 			input(class='chat-form__submit', type='submit', value='Send')
