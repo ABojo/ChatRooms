@@ -130,6 +130,7 @@ body {
   max-width: 50rem;
   border-radius: 1rem;
   animation: slideIn 4s;
+  z-index: 1;
 }
 .popup-message.success {
   background-color: #2ecc71;
